@@ -46,6 +46,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "environmentExceptionTitle": MessageLookupByLibrary.simpleMessage(
       "Error de ambiente",
     ),
+    "errorUnexpected": MessageLookupByLibrary.simpleMessage(
+      "Ocurrió un error en la aplicación",
+    ),
     "formInvalidFailureTitle": MessageLookupByLibrary.simpleMessage(
       "Formulario inválido",
     ),

@@ -57,18 +57,18 @@ class AppFailure extends Failure {
   /// [message] is the message of the error
   ///
   /// This is used when the error is unexpected
-  factory AppFailure.unexpected(String message) =>
-      AppFailure(title: "Ocurrió un error en la aplicación", message: message);
+  factory AppFailure.unexpected(String message) => AppFailure(
+    title: FlutterCommonLocalizations.current.errorUnexpected,
+    message: message,
+  );
 
   /// Create an [AppFailure]
   ///
   /// [errorMessage] is the message of the error
   ///
   /// This is used when the error is related to the environment
-  factory AppFailure.environment({required String errorMessage}) => AppFailure(
-    title: "Ocurrió un error en la aplicación",
-    message: errorMessage,
-  );
+  factory AppFailure.environment({required EnvironmentException exception}) =>
+      AppFailure(title: exception.title, message: exception.message);
 
   /// Create an [AppFailure]
   ///

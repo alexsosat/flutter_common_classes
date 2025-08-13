@@ -5,6 +5,7 @@
   "deleteValueError": "Ocurrió un error al eliminar el valor de {token}",
   "environmentExceptionMessage": "Ocurrió un error al cargar la configuración de la app: {token}",
   "environmentExceptionTitle": "Error de ambiente",
+  "errorUnexpected": "Ocurrió un error en la aplicación",
   "formInvalidFailureTitle": "Formulario inválido",
   "internetConnectionUnavailableMessage": "Revisa tu conexión a internet y vuelve a intentarlo",
   "internetConnectionUnavailableTitle": "Sin conexión a internet",

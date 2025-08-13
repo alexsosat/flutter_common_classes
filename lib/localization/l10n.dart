@@ -118,6 +118,16 @@ class FlutterCommonLocalizations {
     );
   }
 
+  /// `Ocurrió un error en la aplicación`
+  String get errorUnexpected {
+    return Intl.message(
+      'Ocurrió un error en la aplicación',
+      name: 'errorUnexpected',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Formulario inválido`
   String get formInvalidFailureTitle {
     return Intl.message(

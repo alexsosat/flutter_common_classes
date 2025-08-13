@@ -17,15 +17,15 @@
     "i18n-ally.pathMatcher": "intl_{locale}.{ext}",
     "i18n-ally.annotationRange": "annotation",
     "i18n-ally.regex.usageMatch": [
-        "(?<annotation>FODTemplateLocalizations.of(context).)(?<key>[a-zA-Z0-9_.]+)",
-        "(?<annotation>FODTemplateLocalizations.current.(?<key>{key}))\\W"
+        "(?<annotation>FlutterCommonLocalizations.of(context).)(?<key>[a-zA-Z0-9_.]+)",
+        "(?<annotation>FlutterCommonLocalizations.current.(?<key>{key}))\\W"
     ],
     "i18n-ally.refactor.templates": [
         {
-            "template": "FODTemplateLocalizations.current.{key}"
+            "template": "FlutterCommonLocalizations.current.{key}"
         },
         {
-            "template": "FODTemplateLocalizations.of(context).{key}"
+            "template": "FlutterCommonLocalizations.of(context).{key}"
         }
     ],
 }
