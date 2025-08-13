@@ -1,0 +1,23 @@
+{
+  "cacheExceptionTitle": "Fehler beim Zugriff auf Informationen auf dem Gerät",
+  "certificateInvalidMessage": "Das Sicherheitszertifikat des Servers ist ungültig",
+  "certificateInvalidTitle": "Ungültiges Zertifikat",
+  "deleteValueError": "Beim Löschen des Wertes von {token} ist ein Fehler aufgetreten",
+  "environmentExceptionMessage": "Beim Laden der App-Konfiguration ist ein Fehler aufgetreten: {token}",
+  "environmentExceptionTitle": "Fehler in der Umgebung",
+  "formInvalidFailureTitle": "Ungültiges Formular",
+  "internetConnectionUnavailableMessage": "Überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.",
+  "internetConnectionUnavailableTitle": "Keine Internetverbindung",
+  "readValueError": "Beim Lesen des Wertes von {token} ist ein Fehler aufgetreten",
+  "requestBadMessage": "Die an den Server gesendeten Parameter sind falsch",
+  "requestBadTitle": "Falscher Antrag",
+  "requestCanceledMessage": "Die Anfrage wurde vom Benutzer abgebrochen",
+  "requestCanceledTitle": "Petition annulliert",
+  "saveValueError": "Beim Speichern des Wertes ist ein Fehler aufgetreten: {token}",
+  "serverUnderMantainanceTitle": "Unsere Server werden gerade gewartet",
+  "sessionExpiredMessage": "Ihre Sitzung ist abgelaufen, bitte melden Sie sich erneut an.",
+  "sessionExpiredTitle": "Sitzung abgelaufen",
+  "tryAgainLater": "Bitte versuchen Sie es später noch einmal",
+  "userUnauthorizedMessage": "Der Benutzer verfügt nicht über die erforderlichen Berechtigungen für den Zugriff auf diesen Bildschirm.",
+  "userUnauthorizedTitle": "Dieser Benutzer hat keinen Zugriff auf den Bildschirm"
+}

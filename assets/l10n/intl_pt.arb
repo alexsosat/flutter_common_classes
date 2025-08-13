@@ -1,0 +1,23 @@
+{
+  "cacheExceptionTitle": "Erro ao aceder a informações no dispositivo",
+  "certificateInvalidMessage": "O certificado de segurança do servidor é inválido",
+  "certificateInvalidTitle": "Certificado inválido",
+  "deleteValueError": "Ocorreu um erro ao eliminar o valor de {token}",
+  "environmentExceptionMessage": "Ocorreu um erro ao carregar a configuração da aplicação: {token}",
+  "environmentExceptionTitle": "Erro de ambiente",
+  "formInvalidFailureTitle": "Formulário inválido",
+  "internetConnectionUnavailableMessage": "Verifique a sua ligação à Internet e tente novamente.",
+  "internetConnectionUnavailableTitle": "Sem ligação à Internet",
+  "readValueError": "Ocorreu um erro ao ler o valor de {token}",
+  "requestBadMessage": "Os parâmetros enviados para o servidor estão incorrectos",
+  "requestBadTitle": "Pedido incorreto",
+  "requestCanceledMessage": "O pedido foi cancelado pelo utilizador",
+  "requestCanceledTitle": "Petição anulada",
+  "saveValueError": "Ocorreu um erro ao guardar o valor: {token}",
+  "serverUnderMantainanceTitle": "Os nossos servidores estão em manutenção",
+  "sessionExpiredMessage": "A sua sessão expirou, por favor inicie sessão novamente.",
+  "sessionExpiredTitle": "Sessão expirada",
+  "tryAgainLater": "Por favor, tente novamente mais tarde",
+  "userUnauthorizedMessage": "O utilizador não tem as permissões necessárias para aceder a este ecrã.",
+  "userUnauthorizedTitle": "Este utilizador não tem acesso ao ecrã"
+}

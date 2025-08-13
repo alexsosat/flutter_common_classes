@@ -1,0 +1,23 @@
+{
+  "cacheExceptionTitle": "장치의 정보에 액세스하는 동안 오류가 발생했습니다.",
+  "certificateInvalidMessage": "서버의 보안 인증서가 유효하지 않습니다.",
+  "certificateInvalidTitle": "잘못된 인증서",
+  "deleteValueError": "{token} 값을 삭제할 때 오류가 발생했습니다.",
+  "environmentExceptionMessage": "앱 구성을 로드하는 동안 오류가 발생했습니다: {token}",
+  "environmentExceptionTitle": "환경 오류",
+  "formInvalidFailureTitle": "잘못된 양식",
+  "internetConnectionUnavailableMessage": "인터넷 연결을 확인하고 다시 시도하세요.",
+  "internetConnectionUnavailableTitle": "인터넷 연결 없음",
+  "readValueError": "{token} 값을 읽을 때 오류가 발생했습니다.",
+  "requestBadMessage": "서버로 전송된 매개변수가 올바르지 않습니다.",
+  "requestBadTitle": "잘못된 요청",
+  "requestCanceledMessage": "사용자가 요청을 취소했습니다.",
+  "requestCanceledTitle": "청원 취소됨",
+  "saveValueError": "값을 저장하는 동안 오류가 발생했습니다: {token}",
+  "serverUnderMantainanceTitle": "서버가 점검 중입니다.",
+  "sessionExpiredMessage": "세션이 만료되었습니다. 다시 로그인하세요.",
+  "sessionExpiredTitle": "세션이 만료되었습니다.",
+  "tryAgainLater": "나중에 다시 시도하세요.",
+  "userUnauthorizedMessage": "사용자에게 이 화면에 액세스할 수 있는 필수 권한이 없습니다.",
+  "userUnauthorizedTitle": "이 사용자에게는 화면에 액세스할 수 있는 권한이 없습니다."
+}

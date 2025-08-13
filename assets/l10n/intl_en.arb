@@ -1,0 +1,23 @@
+{
+  "cacheExceptionTitle": "Error accessing information on the device",
+  "certificateInvalidMessage": "The server's security certificate is invalid",
+  "certificateInvalidTitle": "Invalid certificate",
+  "deleteValueError": "An error occurred when deleting the value of {token}",
+  "environmentExceptionMessage": "An error occurred while loading the app configuration: {token}",
+  "environmentExceptionTitle": "Environment error",
+  "formInvalidFailureTitle": "Invalid form",
+  "internetConnectionUnavailableMessage": "Check your internet connection and try again.",
+  "internetConnectionUnavailableTitle": "No internet connection",
+  "readValueError": "An error occurred when reading the value of {token}",
+  "requestBadMessage": "Parameters sent to the server are incorrect",
+  "requestBadTitle": "Incorrect request",
+  "requestCanceledMessage": "The request was cancelled by the user",
+  "requestCanceledTitle": "Request cancelled",
+  "saveValueError": "An error occurred while saving the value: {token}",
+  "serverUnderMantainanceTitle": "Our servers are under maintenance",
+  "sessionExpiredMessage": "Your session has expired, please log in again.",
+  "sessionExpiredTitle": "Session expired",
+  "tryAgainLater": "Please try again later",
+  "userUnauthorizedMessage": "The user does not have the necessary permissions to access this screen.",
+  "userUnauthorizedTitle": "This user does not have access to the screen"
+}

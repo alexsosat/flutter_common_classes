@@ -1,0 +1,23 @@
+{
+  "cacheExceptionTitle": "Erreur d'accès aux informations sur l'appareil",
+  "certificateInvalidMessage": "Le certificat de sécurité du serveur n'est pas valide",
+  "certificateInvalidTitle": "Certificat invalide",
+  "deleteValueError": "Une erreur s'est produite lors de la suppression de la valeur de {token}",
+  "environmentExceptionMessage": "Une erreur s'est produite lors du chargement de la configuration de l'application : {token}",
+  "environmentExceptionTitle": "Erreur d'environnement",
+  "formInvalidFailureTitle": "Formulaire non valide",
+  "internetConnectionUnavailableMessage": "Vérifiez votre connexion internet et réessayez.",
+  "internetConnectionUnavailableTitle": "Pas de connexion internet",
+  "readValueError": "Une erreur s'est produite lors de la lecture de la valeur de {token}",
+  "requestBadMessage": "Les paramètres envoyés au serveur sont incorrects",
+  "requestBadTitle": "Demande incorrecte",
+  "requestCanceledMessage": "La demande a été annulée par l'utilisateur",
+  "requestCanceledTitle": "Pétition annulée",
+  "saveValueError": "Une erreur s'est produite lors de l'enregistrement de la valeur : {token}",
+  "serverUnderMantainanceTitle": "Nos serveurs sont en cours de maintenance",
+  "sessionExpiredMessage": "Votre session a expiré, veuillez vous connecter à nouveau.",
+  "sessionExpiredTitle": "Session expirée",
+  "tryAgainLater": "Veuillez réessayer plus tard",
+  "userUnauthorizedMessage": "L'utilisateur ne dispose pas des autorisations nécessaires pour accéder à cet écran.",
+  "userUnauthorizedTitle": "Cet utilisateur n'a pas accès à l'écran"
+}
