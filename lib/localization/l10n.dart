@@ -277,6 +277,26 @@ class FlutterCommonLocalizations {
       args: [],
     );
   }
+
+  /// `Por favor proporciona un valor para obtener la información`
+  String get valueNotSetFailureMessage {
+    return Intl.message(
+      'Por favor proporciona un valor para obtener la información',
+      name: 'valueNotSetFailureMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ningún valor proporcionado`
+  String get valueNotSetFailureTitle {
+    return Intl.message(
+      'Ningún valor proporcionado',
+      name: 'valueNotSetFailureTitle',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate

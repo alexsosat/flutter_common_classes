@@ -91,5 +91,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "userUnauthorizedTitle": MessageLookupByLibrary.simpleMessage(
       "Este usuario no tiene acceso a la pantalla",
     ),
+    "valueNotSetFailureMessage": MessageLookupByLibrary.simpleMessage(
+      "Por favor proporciona un valor para obtener la información",
+    ),
+    "valueNotSetFailureTitle": MessageLookupByLibrary.simpleMessage(
+      "Ningún valor proporcionado",
+    ),
   };
 }
