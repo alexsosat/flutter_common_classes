@@ -9,7 +9,7 @@ import "http_certificate_override.dart";
 /// Class to inject the dependencies in the application
 abstract class DependencyInjection {
   /// Initializes the dependency injection
-  static Future<void> init() async {
+  Future<void> init() async {
     WidgetsFlutterBinding.ensureInitialized();
 
     HttpOverrides.global = HttpCertificateOverride();
@@ -22,20 +22,20 @@ abstract class DependencyInjection {
   /// This injects the services on the main thread
   /// WARNING: This method should be called before the application starts
   /// keep it simple so it doesn't take too long to execute
-  static Future _injectCriticalServices() async {}
+  Future _injectCriticalServices();
 
   /// Inject the services in the application
   ///
   /// This injects the services when the application is running
   /// These services are loaded during the splash screen
-  static Future injectServices() async {}
+  Future injectServices();
 
   /// Inject the repositories in the application
   ///
   /// This injects the repositories when the application is running
   /// These repositories are loaded during the splash screen
   // ignore: long-method
-  static Future injectPublicRepositories() async {
+  void injectPublicRepositories() {
     if (FlavorConfig.instance.name == Flavor.mock.name) {
       _injectMockRepositories();
     } else {
@@ -44,9 +44,9 @@ abstract class DependencyInjection {
   }
 
   /// Inject the repositories available only when the user is logged in
-  static void injectPrivateRepositories() {}
+  void injectPrivateRepositories() {}
 
-  static void _injectMockRepositories() {}
+  void _injectMockRepositories() {}
 
-  static void _injectRealRepositories() {}
+  void _injectRealRepositories() {}
 }
