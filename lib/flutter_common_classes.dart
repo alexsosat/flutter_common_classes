@@ -27,4 +27,5 @@ export 'services/logger/logger_service.dart';
 export 'services/storage/secure_storage_service.dart';
 export 'widgets/cubit_widget_state_builder.dart';
 export 'widgets/failure_dialog.dart';
+export 'widgets/form_builder_searchable_bottom_sheet.dart';
 export 'views/failure_view.dart';
