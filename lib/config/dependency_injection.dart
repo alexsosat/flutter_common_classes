@@ -9,20 +9,23 @@ import "http_certificate_override.dart";
 /// Class to inject the dependencies in the application
 abstract class DependencyInjection {
   /// Initializes the dependency injection
+  @mustCallSuper
   Future<void> init() async {
     WidgetsFlutterBinding.ensureInitialized();
 
     HttpOverrides.global = HttpCertificateOverride();
 
-    await _injectCriticalServices();
+    await injectCriticalServices();
   }
 
-  /// Inject the critical services in the application
+  /// Sets the fucntion to inject the critical services
+  /// in the application
   ///
   /// This injects the services on the main thread
-  /// WARNING: This method should be called before the application starts
-  /// keep it simple so it doesn't take too long to execute
-  Future _injectCriticalServices();
+  ///
+  /// WARNING: This method should not be called, this method is already
+  /// called by the init method
+  Future injectCriticalServices();
 
   /// Inject the services in the application
   ///
@@ -34,19 +37,40 @@ abstract class DependencyInjection {
   ///
   /// This injects the repositories when the application is running
   /// These repositories are loaded during the splash screen
-  // ignore: long-method
+  @mustCallSuper
   void injectPublicRepositories() {
     if (FlavorConfig.instance.name == Flavor.mock.name) {
-      _injectMockRepositories();
+      injectPublicMockRepositories();
     } else {
-      _injectRealRepositories();
+      injectPublicRemoteRepositories();
+    }
+  }
+
+  /// Inject the repositories in the application
+  ///
+  /// This injects the repositories when the application is running
+  /// These repositories are loaded during the splash screen
+  @mustCallSuper
+  void injectPrivateRepositories() {
+    if (FlavorConfig.instance.name == Flavor.mock.name) {
+      injectPrivateMockRepositories();
+    } else {
+      injectPrivateRemoteRepositories();
     }
   }
 
   /// Inject the repositories available only when the user is logged in
-  void injectPrivateRepositories() {}
+  void injectPrivateRemoteRepositories();
 
-  void _injectMockRepositories() {}
+  /// Inject the mock repositories available only when the user is logged in
+  ///
+  /// This repositories are used for testing purposes and only be injected when
+  /// the EnvironmentConfig is set to mock
+  void injectPrivateMockRepositories();
 
-  void _injectRealRepositories() {}
+  /// Inject the public remote repositories in the application
+  void injectPublicRemoteRepositories();
+
+  /// Inject the mock repositories available only when the user is logged in
+  void injectPublicMockRepositories();
 }

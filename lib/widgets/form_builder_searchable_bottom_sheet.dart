@@ -75,7 +75,7 @@ class FormBuilderSearchableBottomSheet<T> extends StatelessWidget {
   final DropdownSearchItemAsString<T> itemAsString;
 
   /// Key to be used for the bottom sheet
-  final GlobalKey<DropdownSearchState>? bottomSheetKey;
+  final GlobalKey<FormBuilderDropdownSearchState<T>>? bottomSheetKey;
 
   ///	Custom filter function
   final DropdownSearchFilterFn<T>? filterFn;

@@ -11,27 +11,27 @@ abstract class EnvironmentConfig {
       name: flavor.name != "production" ? flavor.name : null,
       color: Colors.red,
       location: BannerLocation.topStart,
-      variables: _getVariables(flavor),
+      variables: getVariables(flavor),
     );
   }
 
-  static Map<String, dynamic> _getVariables(Flavor flavor) => switch (flavor) {
-    Flavor.mock => _mockVariables,
-    Flavor.local => _localVariables,
-    Flavor.test => _testVariables,
-    Flavor.production => _prodVariables,
-    Flavor.preProduction => _preProdVariables,
+  static Map<String, dynamic> getVariables(Flavor flavor) => switch (flavor) {
+    Flavor.mock => mockVariables,
+    Flavor.local => localVariables,
+    Flavor.test => testVariables,
+    Flavor.production => prodVariables,
+    Flavor.preProduction => preProdVariables,
   };
 
-  static const Map<String, dynamic> _mockVariables = {};
+  static const Map<String, dynamic> mockVariables = {};
 
-  static const Map<String, dynamic> _localVariables = {};
+  static const Map<String, dynamic> localVariables = {};
 
-  static const Map<String, dynamic> _testVariables = {};
+  static const Map<String, dynamic> testVariables = {};
 
-  static const Map<String, dynamic> _preProdVariables = {};
+  static const Map<String, dynamic> preProdVariables = {};
 
-  static const Map<String, dynamic> _prodVariables = {};
+  static const Map<String, dynamic> prodVariables = {};
 }
 
 /// The different environments for the application.
