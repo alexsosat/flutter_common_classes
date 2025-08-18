@@ -1,5 +1,7 @@
 import "package:internet_connection_checker_plus/internet_connection_checker_plus.dart";
 
+export "package:internet_connection_checker_plus/internet_connection_checker_plus.dart";
+
 /// An abstract class that provides the network information
 abstract class NetworkInfo {
   /// Returns a [Future] of [bool] that indicates
