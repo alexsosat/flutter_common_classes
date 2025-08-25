@@ -1,31 +1,31 @@
 {
-    "dart.flutterSdkPath": "/Users/alejandrososa/Documents/Projects/packages/fod_auth_flutter/.fvm/versions/3.32.0",
-    "i18n-ally.enabledParsers": [
-        "arb"
-    ],
-    "i18n-ally.localesPaths": [
-        "assets/l10n",
-    ],
-    "i18n-ally.annotationDelimiter": "//",
-    "i18n-ally.displayLanguage": "es",
-    "i18n-ally.editor.preferEditor": true,
-    "i18n-ally.enabledFrameworks": [
-        "flutter-l10n"
-    ],
-    "i18n-ally.sourceLanguage": "es",
-    "i18n-ally.extract.keygenStyle": "camelCase",
-    "i18n-ally.pathMatcher": "intl_{locale}.{ext}",
-    "i18n-ally.annotationRange": "annotation",
-    "i18n-ally.regex.usageMatch": [
-        "(?<annotation>FlutterCommonLocalizations.of(context).)(?<key>[a-zA-Z0-9_.]+)",
-        "(?<annotation>FlutterCommonLocalizations.current.(?<key>{key}))\\W"
-    ],
-    "i18n-ally.refactor.templates": [
-        {
-            "template": "FlutterCommonLocalizations.current.{key}"
-        },
-        {
-            "template": "FlutterCommonLocalizations.of(context).{key}"
-        }
-    ],
+  "dart.flutterSdkPath": ".fvm/versions/3.32.8",
+  "i18n-ally.enabledParsers": [
+    "arb"
+  ],
+  "i18n-ally.localesPaths": [
+    "assets/l10n"
+  ],
+  "i18n-ally.annotationDelimiter": "//",
+  "i18n-ally.displayLanguage": "es",
+  "i18n-ally.editor.preferEditor": true,
+  "i18n-ally.enabledFrameworks": [
+    "flutter-l10n"
+  ],
+  "i18n-ally.sourceLanguage": "es",
+  "i18n-ally.extract.keygenStyle": "camelCase",
+  "i18n-ally.pathMatcher": "intl_{locale}.{ext}",
+  "i18n-ally.annotationRange": "annotation",
+  "i18n-ally.regex.usageMatch": [
+    "(?<annotation>FlutterCommonLocalizations.of(context).)(?<key>[a-zA-Z0-9_.]+)",
+    "(?<annotation>FlutterCommonLocalizations.current.(?<key>{key}))\\W"
+  ],
+  "i18n-ally.refactor.templates": [
+    {
+      "template": "FlutterCommonLocalizations.current.{key}"
+    },
+    {
+      "template": "FlutterCommonLocalizations.of(context).{key}"
+    }
+  ]
 }
