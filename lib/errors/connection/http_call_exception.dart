@@ -56,6 +56,9 @@ enum HttpExceptions {
   /// When the status code is between 300 and 499
   badRequest,
 
+  /// When the uri is not found
+  notFound,
+
   /// When the request is canceled
   cancelRequest,
 

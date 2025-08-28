@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_common_classes/flutter_common_classes.dart';
-import 'package:flutter_common_classes/views/failure_view.dart';
 
 void main() => runApp(const MyApp());
 

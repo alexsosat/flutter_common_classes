@@ -72,7 +72,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "requestCanceledTitle": MessageLookupByLibrary.simpleMessage(
       "Petición cancelada",
     ),
+    "routeNotFound": MessageLookupByLibrary.simpleMessage("Ruta no encontrada"),
+    "routeNotFoundMessage": MessageLookupByLibrary.simpleMessage(
+      "No se encontró el recurso solicitado",
+    ),
     "saveValueError": m3,
+    "search": MessageLookupByLibrary.simpleMessage("Buscar"),
     "serverUnderMantainanceTitle": MessageLookupByLibrary.simpleMessage(
       "Nuestros servidores se encuentran en mantenimiento",
     ),

@@ -33,6 +33,25 @@ class ClientErrorException extends HttpCallException {
     );
   }
 
+  /// The constructor for the unauthorized exception.
+  ///
+  /// Can receive the [response] of the HTTP call, a [message], and [extras]
+  /// values that can be used to manage the exception.
+  factory ClientErrorException.notFound({
+    String? title,
+    String? message,
+    Map<String, dynamic>? data,
+    HttpExceptions type = HttpExceptions.notFound,
+  }) {
+    return ClientErrorException(
+      title: title ?? FlutterCommonLocalizations.current.routeNotFound,
+      message:
+          message ?? FlutterCommonLocalizations.current.routeNotFoundMessage,
+      data: data,
+      type: type,
+    );
+  }
+
   /// The constructor for the expired token exception.
   ///
   /// Can receive the [response] of the HTTP call, a [message], and [extras]

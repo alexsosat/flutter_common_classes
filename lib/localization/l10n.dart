@@ -208,6 +208,26 @@ class FlutterCommonLocalizations {
     );
   }
 
+  /// `Ruta no encontrada`
+  String get routeNotFound {
+    return Intl.message(
+      'Ruta no encontrada',
+      name: 'routeNotFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No se encontró el recurso solicitado`
+  String get routeNotFoundMessage {
+    return Intl.message(
+      'No se encontró el recurso solicitado',
+      name: 'routeNotFoundMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Ocurrió un error al guardar el valor: {token}`
   String saveValueError(Object token) {
     return Intl.message(
@@ -216,6 +236,11 @@ class FlutterCommonLocalizations {
       desc: '',
       args: [token],
     );
+  }
+
+  /// `Buscar`
+  String get search {
+    return Intl.message('Buscar', name: 'search', desc: '', args: []);
   }
 
   /// `Nuestros servidores se encuentran en mantenimiento`

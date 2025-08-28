@@ -2,6 +2,7 @@ import "dart:async";
 
 import "package:dropdown_search/dropdown_search.dart";
 import "package:flutter/material.dart";
+import "package:flutter_common_classes/localization/l10n.dart";
 import "package:form_builder_dropdown_search/form_builder_dropdown_search.dart";
 import "package:fpdart/fpdart.dart";
 
@@ -120,9 +121,9 @@ class FormBuilderSearchableBottomSheet<T> extends StatelessWidget {
       modalBottomSheetProps: const ModalBottomSheetProps(
         useRootNavigator: true,
       ),
-      searchFieldProps: const TextFieldProps(
+      searchFieldProps: TextFieldProps(
         decoration: InputDecoration(
-          labelText: "Buscar",
+          labelText: FlutterCommonLocalizations.current.search,
           prefixIcon: Icon(Icons.search),
         ),
       ),

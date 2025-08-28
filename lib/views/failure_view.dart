@@ -84,17 +84,13 @@ class _FailureAnimation extends StatelessWidget {
   final Failure failure;
 
   @override
-  Widget build(BuildContext context) => Lottie.asset(
-    switch (failure) {
-      AppFailure _ => "assets/animations/failure/app_error.json",
-      HttpCallFailure serverErrorFailure => _httpAnimation(
-        serverErrorFailure.type,
-      ),
-      _ => "assets/animations/failure/unexpected.json",
-    },
-    // TODO: Validate the animation loading
-    package: "flutter_common_classes",
-  );
+  Widget build(BuildContext context) => Lottie.asset(switch (failure) {
+    AppFailure _ => "assets/animations/failure/app_error.json",
+    HttpCallFailure serverErrorFailure => _httpAnimation(
+      serverErrorFailure.type,
+    ),
+    _ => "assets/animations/failure/unexpected.json",
+  }, package: "flutter_common_classes");
 
   String _httpAnimation(HttpExceptions type) {
     switch (type) {
@@ -113,6 +109,7 @@ class _FailureAnimation extends StatelessWidget {
       case HttpExceptions.cancelRequest:
         return "assets/animations/failure/canceled.json";
       case HttpExceptions.badCertificate:
+      case HttpExceptions.notFound:
         return "assets/animations/failure/bad_certificate.json";
       case HttpExceptions.other:
         return "assets/animations/failure/unexpected.json";
