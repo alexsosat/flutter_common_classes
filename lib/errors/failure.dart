@@ -33,6 +33,8 @@ class HttpCallFailure extends Failure {
     required super.message,
     required super.title,
     required this.type,
+    this.data,
+    this.code,
   });
 
   /// Create a [HttpCallFailure] from a [HttpCallException]
@@ -41,10 +43,18 @@ class HttpCallFailure extends Failure {
         title: exception.title,
         message: exception.message,
         type: exception.type,
+        data: exception.data,
+        code: (exception is ClientErrorException) ? exception.code : null,
       );
 
   /// The type of the exception
   final HttpExceptions type;
+
+  /// The data of the exception
+  final Map<String, dynamic>? data;
+
+  /// code of the exception
+  final int? code;
 }
 
 /// Failure used for the application side

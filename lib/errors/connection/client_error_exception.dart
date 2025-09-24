@@ -12,7 +12,11 @@ class ClientErrorException extends HttpCallException {
     super.data,
     super.message = "",
     super.type = HttpExceptions.clientError,
+    required this.code,
   });
+
+  /// The code of the exception
+  final int? code;
 
   /// The constructor for the unauthorized exception.
   ///
@@ -23,6 +27,7 @@ class ClientErrorException extends HttpCallException {
     String? message,
     Map<String, dynamic>? data,
     HttpExceptions type = HttpExceptions.unauthorized,
+    int? code,
   }) {
     return ClientErrorException(
       title: title ?? FlutterCommonLocalizations.current.userUnauthorizedTitle,
@@ -30,6 +35,7 @@ class ClientErrorException extends HttpCallException {
           message ?? FlutterCommonLocalizations.current.userUnauthorizedMessage,
       data: data,
       type: type,
+      code: code,
     );
   }
 
@@ -42,6 +48,7 @@ class ClientErrorException extends HttpCallException {
     String? message,
     Map<String, dynamic>? data,
     HttpExceptions type = HttpExceptions.notFound,
+    int? code,
   }) {
     return ClientErrorException(
       title: title ?? FlutterCommonLocalizations.current.routeNotFound,
@@ -49,6 +56,7 @@ class ClientErrorException extends HttpCallException {
           message ?? FlutterCommonLocalizations.current.routeNotFoundMessage,
       data: data,
       type: type,
+      code: code,
     );
   }
 
@@ -61,11 +69,13 @@ class ClientErrorException extends HttpCallException {
     String? message,
     Map<String, dynamic>? data,
     HttpExceptions type = HttpExceptions.expiredToken,
+    int? code,
   }) => ClientErrorException(
     title: title ?? FlutterCommonLocalizations.current.sessionExpiredTitle,
     message:
         message ?? FlutterCommonLocalizations.current.sessionExpiredMessage,
     type: HttpExceptions.expiredToken,
+    code: code,
   );
 
   /// The constructor for the Bad Request exception.
@@ -77,11 +87,13 @@ class ClientErrorException extends HttpCallException {
     String? message,
     Map<String, dynamic>? data,
     HttpExceptions type = HttpExceptions.badRequest,
+    int? code,
   }) => ClientErrorException(
     title: title ?? FlutterCommonLocalizations.current.requestBadTitle,
     message: message ?? FlutterCommonLocalizations.current.requestBadMessage,
     data: data,
     type: type,
+    code: code,
   );
 
   /// The constructor for the cancel exception.
@@ -90,11 +102,13 @@ class ClientErrorException extends HttpCallException {
     String? message,
     Map<String, dynamic>? data,
     HttpExceptions type = HttpExceptions.cancelRequest,
+    int? code,
   }) => ClientErrorException(
     title: title ?? FlutterCommonLocalizations.current.requestCanceledTitle,
     message:
         message ?? FlutterCommonLocalizations.current.requestCanceledMessage,
     data: data,
     type: type,
+    code: code,
   );
 }
