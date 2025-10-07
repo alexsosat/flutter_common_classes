@@ -1,6 +1,6 @@
 name: flutter_common_classes
 description: "A new Flutter package project."
-version: 1.0.11
+version: 1.0.16
 publish_to: none
 
 environment:
@@ -14,6 +14,7 @@ dependencies:
   faker: ^2.2.0
   flutter:
     sdk: flutter
+  flutter_animate: ^4.5.2
   flutter_bloc: ^9.1.1
   flutter_flavor: ^3.1.4
   flutter_secure_storage: ^9.2.4
@@ -26,6 +27,8 @@ dependencies:
   intl: any
   logger: ^2.6.1
   lottie: ^3.3.1
+  shimmer: ^3.0.0
+  skeletonizer: ^2.1.0+1
 
 dev_dependencies:
   flutter_lints: ^5.0.0
