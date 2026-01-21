@@ -4,13 +4,13 @@ import "package:dropdown_search/dropdown_search.dart";
 import "package:flutter/material.dart";
 import "package:flutter_common_classes/localization/l10n.dart";
 import "package:form_builder_dropdown_search/form_builder_dropdown_search.dart";
-import "package:fpdart/fpdart.dart";
+import "package:fpdart/fpdart.dart" show Either;
 
 import "../errors/failure.dart";
 import "../views/failure_view.dart";
 
 /// A form field that shows a bottom sheet when clicked
-class FormBuilderSearchableBottomSheet<T> extends StatelessWidget {
+class FormBuilderSearchableBottomSheet<T> extends StatefulWidget {
   /// A form field that shows a bottom sheet when focused
   const FormBuilderSearchableBottomSheet({
     required this.name,
@@ -31,6 +31,9 @@ class FormBuilderSearchableBottomSheet<T> extends StatelessWidget {
     this.clearButtonVisible = true,
     this.showSearchBox = true,
     this.enabled = true,
+    this.autoSelectUniqueItem = false,
+    this.suggestedItemsUseCase,
+    this.suggestedItemBuilder,
     super.key,
   });
 
@@ -42,6 +45,9 @@ class FormBuilderSearchableBottomSheet<T> extends StatelessWidget {
 
   /// Function to get the items to be displayed in the bottom sheet
   final Future<Either<Failure, List<T>>> Function() useCase;
+
+  /// Function to get the suggested items to be displayed in the bottom sheet
+  final Either<Failure, List<T>> Function()? suggestedItemsUseCase;
 
   /// True if the search box should be visible
   final bool showSearchBox;
@@ -60,6 +66,9 @@ class FormBuilderSearchableBottomSheet<T> extends StatelessWidget {
 
   /// Builder to display the options in the bottom sheet
   final DropdownSearchPopupItemBuilder<T>? itemBuilder;
+
+  /// Builder to display the suggested items in the bottom sheet
+  final FavoriteItemsBuilder<T>? suggestedItemBuilder;
 
   /// Defines if an item of the popup is enabled or not, if the item is disabled,
   /// it cannot be clicked
@@ -84,6 +93,11 @@ class FormBuilderSearchableBottomSheet<T> extends StatelessWidget {
   /// True if the field is enabled
   final bool enabled;
 
+  /// True if the first item should be automatically selected
+  ///
+  /// The auto select first item is only enabled if the field has only one item.
+  final bool autoSelectUniqueItem;
+
   /// Message to be displayed for programmatic errors
   final String? errorText;
 
@@ -91,31 +105,52 @@ class FormBuilderSearchableBottomSheet<T> extends StatelessWidget {
   final String? helperText;
 
   @override
+  State<FormBuilderSearchableBottomSheet<T>> createState() =>
+      _FormBuilderSearchableBottomSheetState<T>();
+}
+
+class _FormBuilderSearchableBottomSheetState<T>
+    extends State<FormBuilderSearchableBottomSheet<T>> {
+  @override
+  void initState() {
+    super.initState();
+    if (widget.autoSelectUniqueItem) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _automaticSelectFirstItem();
+      });
+    }
+  }
+
+  @override
   Widget build(BuildContext context) => FormBuilderDropdownSearch<T>(
-    key: bottomSheetKey,
-    name: name,
-    enabled: enabled,
+    key: widget.bottomSheetKey,
+    name: widget.name,
+    enabled: widget.enabled,
     items: _getItems,
     clearButtonProps: ClearButtonProps(
-      isVisible: clearButtonVisible,
+      isVisible: widget.clearButtonVisible,
       icon: const Icon(Icons.clear),
     ),
-    validator: validator,
+    validator: widget.validator,
     popupProps: PopupProps.modalBottomSheet(
-      title: title != null
-          ? Padding(padding: const EdgeInsets.all(20), child: title!)
+      title: widget.title != null
+          ? Padding(padding: const EdgeInsets.all(20), child: widget.title!)
           : null,
-      onItemsLoaded: (value) {
-        // TODO: Implement onItemsLoaded
-      },
+      suggestedItemProps: SuggestedItemProps(
+        showSuggestedItems: widget.suggestedItemsUseCase != null,
+        suggestedItems: widget.suggestedItemsUseCase != null
+            ? (items) => _getSuggestedItems(items)
+            : null,
+        suggestedItemBuilder: widget.suggestedItemBuilder,
+      ),
       emptyBuilder: _emptyBuilder,
-      itemBuilder: itemBuilder,
+      itemBuilder: widget.itemBuilder,
       loadingBuilder: (context, searchEntry) =>
           const Center(child: CircularProgressIndicator.adaptive()),
       errorBuilder: _errorBuilder,
-      disabledItemFn: disabledItemFn,
+      disabledItemFn: widget.disabledItemFn,
       cacheItems: true,
-      showSearchBox: showSearchBox,
+      showSearchBox: widget.showSearchBox,
       searchDelay: Duration.zero,
       showSelectedItems: true,
       modalBottomSheetProps: const ModalBottomSheetProps(
@@ -128,20 +163,20 @@ class FormBuilderSearchableBottomSheet<T> extends StatelessWidget {
         ),
       ),
     ),
-    onChanged: onChanged,
+    onChanged: widget.onChanged,
     decoration: InputDecoration(
-      labelText: label,
-      errorText: errorText,
-      helperText: helperText,
+      labelText: widget.label,
+      errorText: widget.errorText,
+      helperText: widget.helperText,
       helperMaxLines: 2,
     ),
-    compareFn: compareFn,
-    itemAsString: itemAsString,
-    filterFn: filterFn,
+    compareFn: widget.compareFn,
+    itemAsString: widget.itemAsString,
+    filterFn: widget.filterFn,
   );
 
   FutureOr<List<T>> _getItems(String _, LoadProps? __) async {
-    final itemsResponse = await useCase();
+    final itemsResponse = await widget.useCase();
 
     return itemsResponse.fold(
       // ignore: only_throw_errors
@@ -151,7 +186,7 @@ class FormBuilderSearchableBottomSheet<T> extends StatelessWidget {
   }
 
   Widget _emptyBuilder(_, __) =>
-      Center(child: Text(emptyText ?? "No se encontraron elementos"));
+      Center(child: Text(widget.emptyText ?? "No se encontraron elementos"));
 
   Widget _errorBuilder(_, __, exception) {
     if (exception is Failure) {
@@ -167,5 +202,36 @@ class FormBuilderSearchableBottomSheet<T> extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  /// Get the suggested items to be displayed in the bottom sheet
+  List<T> _getSuggestedItems(List<T> items) {
+    final suggestedItemsResponse = widget.suggestedItemsUseCase!();
+
+    List<T> suggestedItems = [];
+
+    suggestedItemsResponse.fold(
+      // ignore: only_throw_errors
+      (failure) => throw failure,
+      (value) => suggestedItems = value,
+    );
+
+    suggestedItems = suggestedItems
+        .where((item) => items.contains(item))
+        .toList();
+
+    return suggestedItems;
+  }
+
+  Future<void> _automaticSelectFirstItem() async {
+    final itemsResponse = await widget.useCase();
+
+    List<T> items = [];
+
+    itemsResponse.fold((failure) => {}, (value) => items = value);
+
+    if (items.isEmpty || items.length > 1) return;
+
+    widget.bottomSheetKey?.currentState?.updateValue(items.first);
   }
 }
