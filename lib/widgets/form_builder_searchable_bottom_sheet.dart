@@ -2,6 +2,7 @@ import "dart:async";
 
 import "package:dropdown_search/dropdown_search.dart";
 import "package:flutter/material.dart";
+import "package:flutter_common_classes/flutter_common_classes.dart";
 import "package:flutter_common_classes/localization/l10n.dart";
 import "package:form_builder_dropdown_search/form_builder_dropdown_search.dart";
 import "package:fpdart/fpdart.dart" show Either;
@@ -153,8 +154,9 @@ class _FormBuilderSearchableBottomSheetState<T>
       showSearchBox: widget.showSearchBox,
       searchDelay: Duration.zero,
       showSelectedItems: true,
-      modalBottomSheetProps: const ModalBottomSheetProps(
+      modalBottomSheetProps: ModalBottomSheetProps(
         useRootNavigator: true,
+        backgroundColor: context.colorScheme.surface,
       ),
       searchFieldProps: TextFieldProps(
         decoration: InputDecoration(
