@@ -1,14 +1,11 @@
 import "dart:async";
 
-import "package:dropdown_search/dropdown_search.dart";
-import "package:flutter/material.dart";
-import "package:flutter_common_classes/flutter_common_classes.dart";
-import "package:flutter_common_classes/localization/l10n.dart";
+import "package:flutter/material.dart" hide SuggestionsBuilder;
+import "../flutter_common_classes.dart";
+import "../localization/l10n.dart";
+import "package:form_builder_dropdown_search/dropdown_search.dart";
 import "package:form_builder_dropdown_search/form_builder_dropdown_search.dart";
 import "package:fpdart/fpdart.dart" show Either;
-
-import "../errors/failure.dart";
-import "../views/failure_view.dart";
 
 /// A form field that shows a bottom sheet when clicked
 class FormBuilderSearchableBottomSheet<T> extends StatefulWidget {
@@ -69,7 +66,7 @@ class FormBuilderSearchableBottomSheet<T> extends StatefulWidget {
   final DropdownSearchPopupItemBuilder<T>? itemBuilder;
 
   /// Builder to display the suggested items in the bottom sheet
-  final FavoriteItemsBuilder<T>? suggestedItemBuilder;
+  final SuggestionsBuilder<T>? suggestedItemBuilder;
 
   /// Defines if an item of the popup is enabled or not, if the item is disabled,
   /// it cannot be clicked
@@ -137,13 +134,14 @@ class _FormBuilderSearchableBottomSheetState<T>
       title: widget.title != null
           ? Padding(padding: const EdgeInsets.all(20), child: widget.title!)
           : null,
-      suggestedItemProps: SuggestedItemProps(
-        showSuggestedItems: widget.suggestedItemsUseCase != null,
-        suggestedItems: widget.suggestedItemsUseCase != null
+      suggestionsProps: SuggestionsProps(
+        showSuggestions: widget.suggestedItemsUseCase != null,
+        builder: widget.suggestedItemBuilder,
+        items: widget.suggestedItemsUseCase != null
             ? (items) => _getSuggestedItems(items)
             : null,
-        suggestedItemBuilder: widget.suggestedItemBuilder,
       ),
+
       emptyBuilder: _emptyBuilder,
       itemBuilder: widget.itemBuilder,
       loadingBuilder: (context, searchEntry) =>
