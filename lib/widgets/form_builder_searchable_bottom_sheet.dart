@@ -1,11 +1,10 @@
 import "dart:async";
 
 import "package:flutter/material.dart" hide SuggestionsBuilder;
+import "package:fpdart/fpdart.dart" show Either;
+
 import "../flutter_common_classes.dart";
 import "../localization/l10n.dart";
-import "package:form_builder_dropdown_search/dropdown_search.dart";
-import "package:form_builder_dropdown_search/form_builder_dropdown_search.dart";
-import "package:fpdart/fpdart.dart" show Either;
 
 /// A form field that shows a bottom sheet when clicked
 class FormBuilderSearchableBottomSheet<T> extends StatefulWidget {
@@ -66,7 +65,7 @@ class FormBuilderSearchableBottomSheet<T> extends StatefulWidget {
   final DropdownSearchPopupItemBuilder<T>? itemBuilder;
 
   /// Builder to display the suggested items in the bottom sheet
-  final SuggestionsBuilder<T>? suggestedItemBuilder;
+  final FavoriteItemsBuilder<T>? suggestedItemBuilder;
 
   /// Defines if an item of the popup is enabled or not, if the item is disabled,
   /// it cannot be clicked
@@ -134,10 +133,10 @@ class _FormBuilderSearchableBottomSheetState<T>
       title: widget.title != null
           ? Padding(padding: const EdgeInsets.all(20), child: widget.title!)
           : null,
-      suggestionsProps: SuggestionsProps(
-        showSuggestions: widget.suggestedItemsUseCase != null,
-        builder: widget.suggestedItemBuilder,
-        items: widget.suggestedItemsUseCase != null
+      suggestedItemProps: SuggestedItemProps(
+        showSuggestedItems: widget.suggestedItemsUseCase != null,
+        suggestedItemBuilder: widget.suggestedItemBuilder,
+        suggestedItems: widget.suggestedItemsUseCase != null
             ? (items) => _getSuggestedItems(items)
             : null,
       ),
