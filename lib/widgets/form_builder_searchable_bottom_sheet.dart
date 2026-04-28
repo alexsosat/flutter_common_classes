@@ -31,6 +31,7 @@ class FormBuilderSearchableBottomSheet<T> extends StatefulWidget {
     this.autoSelectUniqueItem = false,
     this.suggestedItemsUseCase,
     this.suggestedItemBuilder,
+    this.clickProps = const ClickProps(),
     super.key,
   });
 
@@ -87,6 +88,9 @@ class FormBuilderSearchableBottomSheet<T> extends StatefulWidget {
   ///	Custom filter function
   final DropdownSearchFilterFn<T>? filterFn;
 
+  /// Click props
+  final ClickProps clickProps;
+
   /// True if the field is enabled
   final bool enabled;
 
@@ -140,7 +144,7 @@ class _FormBuilderSearchableBottomSheetState<T>
             ? (items) => _getSuggestedItems(items)
             : null,
       ),
-
+      itemClickProps: widget.clickProps,
       emptyBuilder: _emptyBuilder,
       itemBuilder: widget.itemBuilder,
       loadingBuilder: (context, searchEntry) =>

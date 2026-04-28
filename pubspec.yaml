@@ -1,6 +1,6 @@
 name: flutter_common_classes
 description: "A new Flutter package project."
-version: 1.0.21
+version: 1.0.22
 publish_to: none
 
 environment:
@@ -9,7 +9,7 @@ environment:
 
 dependencies:
   collection: ^1.19.1
-  confirm_alert: ^0.0.1
+  confirm_alert: ^0.0.3
   faker: ^2.2.0
   flutter:
     sdk: flutter

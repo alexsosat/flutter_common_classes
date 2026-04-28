@@ -1,6 +1,6 @@
-import 'package:confirm_alert/show_confirmation_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_common_classes/flutter_common_classes.dart';
+
+import '../flutter_common_classes.dart';
 
 /// Shows a dialog with the error message
 Future showFailureDialog({
@@ -11,12 +11,11 @@ Future showFailureDialog({
     showCancel: false,
     barrierDismissible: false,
   ),
-}) =>
-    showConfirmationDialog(
-      context: context,
-      texts: ConfirmationDialogTexts(
-        title: failure.title,
-        message: failure.message,
-      ),
-      options: options,
-    );
+}) => showConfirmationDialog(
+  context: context,
+  texts: ConfirmationDialogTexts(
+    title: failure.title,
+    message: failure.message,
+  ),
+  options: options,
+);
