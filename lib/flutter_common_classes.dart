@@ -33,3 +33,4 @@ export 'views/failure_view.dart';
 export "package:form_builder_dropdown_search/dropdown_search.dart";
 export "package:form_builder_dropdown_search/form_builder_dropdown_search.dart";
 export "package:confirm_alert/show_confirmation_dialog.dart";
+export "package:confirm_alert/classes/dialog_result_enum.dart";
