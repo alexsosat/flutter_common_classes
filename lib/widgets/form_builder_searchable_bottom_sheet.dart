@@ -11,10 +11,10 @@ class FormBuilderSearchableBottomSheet<T> extends StatelessWidget {
   const FormBuilderSearchableBottomSheet({
     required this.name,
     required this.useCase,
-    required this.itemBuilder,
     required this.label,
     required this.compareFn,
     required this.itemAsString,
+    this.itemBuilder,
     this.title,
     this.onChanged,
     this.emptyText,
