@@ -69,10 +69,10 @@ packages:
     dependency: transitive
     description:
       name: confirm_alert
-      sha256: d8b6e34717e89f7fe45277501592c51cb1fd3f3f3be1ded78ea0fbcf15170883
+      sha256: b8a6d73e477296f3e00e3657bf93c4b8baeb577aa0dca2e376c2faf5b773cc4d
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.1"
+    version: "0.0.5"
   connectivity_plus:
     dependency: transitive
     description:
@@ -117,11 +117,11 @@ packages:
     dependency: transitive
     description:
       path: "."
-      ref: "6.0.2"
-      resolved-ref: "2c1c2bc29cfd4cdbe66f1700c54422b6b61e473b"
+      ref: "6.1.0"
+      resolved-ref: af28715f5514e802f53f0df4a5550dca6f84d6a1
       url: "https://github.com/alexsosat/dropdown_search.git"
     source: git
-    version: "6.0.2"
+    version: "6.0.7"
   fake_async:
     dependency: transitive
     description:
@@ -146,6 +146,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.4"
+  file:
+    dependency: transitive
+    description:
+      name: file
+      sha256: a3b4f84adafef897088c160faf7dfffb7696046cb13ae90b508c2cbc95d3b8d4
+      url: "https://pub.dev"
+    source: hosted
+    version: "7.0.1"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -173,7 +181,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "1.0.21"
+    version: "1.0.25"
   flutter_flavor:
     dependency: transitive
     description:
@@ -198,6 +206,11 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.0.0"
+  flutter_localizations:
+    dependency: transitive
+    description: flutter
+    source: sdk
+    version: "0.0.0"
   flutter_secure_storage:
     dependency: transitive
     description:
@@ -268,11 +281,11 @@ packages:
     dependency: transitive
     description:
       path: "."
-      ref: "0.0.7"
-      resolved-ref: a960df6cf8b61141f5089ecc91fb9a0a688997c4
+      ref: "0.0.10"
+      resolved-ref: "885a34be11b62e3ff82e1834e5652441ee92d830"
       url: "https://github.com/alexsosat/form_builder_dropdown_search.git"
     source: git
-    version: "0.0.7"
+    version: "0.0.10"
   fpdart:
     dependency: transitive
     description:
@@ -365,10 +378,10 @@ packages:
     dependency: transitive
     description:
       name: lottie
-      sha256: c5fa04a80a620066c15cf19cc44773e19e9b38e989ff23ea32e5903ef1015950
+      sha256: "8b6359a7422167014aa73ce763fa133fb832065dcc0ac4d1dec1f603a5cef7d0"
       url: "https://pub.dev"
     source: hosted
-    version: "3.3.1"
+    version: "3.3.3"
   matcher:
     dependency: transitive
     description:
@@ -505,6 +518,62 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.1.5+1"
+  shared_preferences:
+    dependency: transitive
+    description:
+      name: shared_preferences
+      sha256: c3025c5534b01739267eb7d76959bbc25a6d10f6988e1c2a3036940133dd10bf
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.5.5"
+  shared_preferences_android:
+    dependency: transitive
+    description:
+      name: shared_preferences_android
+      sha256: e8d4762b1e2e8578fc4d0fd548cebf24afd24f49719c08974df92834565e2c53
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.23"
+  shared_preferences_foundation:
+    dependency: transitive
+    description:
+      name: shared_preferences_foundation
+      sha256: "4e7eaffc2b17ba398759f1151415869a34771ba11ebbccd1b0145472a619a64f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.5.6"
+  shared_preferences_linux:
+    dependency: transitive
+    description:
+      name: shared_preferences_linux
+      sha256: "580abfd40f415611503cae30adf626e6656dfb2f0cee8f465ece7b6defb40f2f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.1"
+  shared_preferences_platform_interface:
+    dependency: transitive
+    description:
+      name: shared_preferences_platform_interface
+      sha256: "649dc798a33931919ea356c4305c2d1f81619ea6e92244070b520187b5140ef9"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.2"
+  shared_preferences_web:
+    dependency: transitive
+    description:
+      name: shared_preferences_web
+      sha256: c49bd060261c9a3f0ff445892695d6212ff603ef3115edbb448509d407600019
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.3"
+  shared_preferences_windows:
+    dependency: transitive
+    description:
+      name: shared_preferences_windows
+      sha256: "94ef0f72b2d71bc3e700e025db3710911bd51a71cefb65cc609dd0d9a982e3c1"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.1"
   shimmer:
     dependency: transitive
     description:
@@ -631,5 +700,5 @@ packages:
     source: hosted
     version: "6.6.1"
 sdks:
-  dart: ">=3.8.0 <4.0.0"
-  flutter: ">=3.32.0"
+  dart: ">=3.9.0 <4.0.0"
+  flutter: ">=3.35.0"

@@ -6,8 +6,7 @@ import "package:fpdart/fpdart.dart" show Either;
 import "../flutter_common_classes.dart";
 import "../localization/l10n.dart";
 
-/// A form field that shows a bottom sheet when clicked
-class FormBuilderSearchableBottomSheet<T> extends StatefulWidget {
+class FormBuilderSearchableBottomSheet<T> extends StatelessWidget {
   /// A form field that shows a bottom sheet when focused
   const FormBuilderSearchableBottomSheet({
     required this.name,
@@ -28,10 +27,11 @@ class FormBuilderSearchableBottomSheet<T> extends StatefulWidget {
     this.clearButtonVisible = true,
     this.showSearchBox = true,
     this.enabled = true,
-    this.autoSelectUniqueItem = false,
     this.suggestedItemsUseCase,
     this.suggestedItemBuilder,
     this.clickProps = const ClickProps(),
+    this.itemProps,
+    this.pinnedItemProps,
     super.key,
   });
 
@@ -94,65 +94,51 @@ class FormBuilderSearchableBottomSheet<T> extends StatefulWidget {
   /// True if the field is enabled
   final bool enabled;
 
-  /// True if the first item should be automatically selected
-  ///
-  /// The auto select first item is only enabled if the field has only one item.
-  final bool autoSelectUniqueItem;
-
   /// Message to be displayed for programmatic errors
   final String? errorText;
 
   /// Message that helps the user to understand the field
   final String? helperText;
 
-  @override
-  State<FormBuilderSearchableBottomSheet<T>> createState() =>
-      _FormBuilderSearchableBottomSheetState<T>();
-}
+  /// Item props to display the items in the bottom sheet
+  final ItemProps<T>? itemProps;
 
-class _FormBuilderSearchableBottomSheetState<T>
-    extends State<FormBuilderSearchableBottomSheet<T>> {
-  @override
-  void initState() {
-    super.initState();
-    if (widget.autoSelectUniqueItem) {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        _automaticSelectFirstItem();
-      });
-    }
-  }
+  /// Props to enable the pinning of items in the bottom sheet
+  final PinnedItemsProps<T>? pinnedItemProps;
 
   @override
   Widget build(BuildContext context) => FormBuilderDropdownSearch<T>(
-    key: widget.bottomSheetKey,
-    name: widget.name,
-    enabled: widget.enabled,
+    key: bottomSheetKey,
+    name: name,
+    enabled: enabled,
     items: _getItems,
     clearButtonProps: ClearButtonProps(
-      isVisible: widget.clearButtonVisible,
+      isVisible: clearButtonVisible,
       icon: const Icon(Icons.clear),
     ),
-    validator: widget.validator,
+    validator: validator,
     popupProps: PopupProps.modalBottomSheet(
-      title: widget.title != null
-          ? Padding(padding: const EdgeInsets.all(20), child: widget.title!)
+      title: title != null
+          ? Padding(padding: const EdgeInsets.all(20), child: title!)
           : null,
       suggestedItemProps: SuggestedItemProps(
-        showSuggestedItems: widget.suggestedItemsUseCase != null,
-        suggestedItemBuilder: widget.suggestedItemBuilder,
-        suggestedItems: widget.suggestedItemsUseCase != null
+        showSuggestedItems: suggestedItemsUseCase != null,
+        suggestedItemBuilder: suggestedItemBuilder,
+        suggestedItems: suggestedItemsUseCase != null
             ? (items) => _getSuggestedItems(items)
             : null,
       ),
-      itemClickProps: widget.clickProps,
+      itemClickProps: clickProps,
       emptyBuilder: _emptyBuilder,
-      itemBuilder: widget.itemBuilder,
+      itemBuilder: itemBuilder,
+      itemProps: itemProps,
+      pinnedItemsProps: pinnedItemProps,
       loadingBuilder: (context, searchEntry) =>
           const Center(child: CircularProgressIndicator.adaptive()),
       errorBuilder: _errorBuilder,
-      disabledItemFn: widget.disabledItemFn,
+      disabledItemFn: disabledItemFn,
       cacheItems: true,
-      showSearchBox: widget.showSearchBox,
+      showSearchBox: showSearchBox,
       searchDelay: Duration.zero,
       showSelectedItems: true,
       modalBottomSheetProps: ModalBottomSheetProps(
@@ -166,20 +152,20 @@ class _FormBuilderSearchableBottomSheetState<T>
         ),
       ),
     ),
-    onChanged: widget.onChanged,
+    onChanged: onChanged,
     decoration: InputDecoration(
-      labelText: widget.label,
-      errorText: widget.errorText,
-      helperText: widget.helperText,
+      labelText: label,
+      errorText: errorText,
+      helperText: helperText,
       helperMaxLines: 2,
     ),
-    compareFn: widget.compareFn,
-    itemAsString: widget.itemAsString,
-    filterFn: widget.filterFn,
+    compareFn: compareFn,
+    itemAsString: itemAsString,
+    filterFn: filterFn,
   );
 
   FutureOr<List<T>> _getItems(String _, LoadProps? __) async {
-    final itemsResponse = await widget.useCase();
+    final itemsResponse = await useCase();
 
     return itemsResponse.fold(
       // ignore: only_throw_errors
@@ -189,7 +175,7 @@ class _FormBuilderSearchableBottomSheetState<T>
   }
 
   Widget _emptyBuilder(_, __) =>
-      Center(child: Text(widget.emptyText ?? "No se encontraron elementos"));
+      Center(child: Text(emptyText ?? "No se encontraron elementos"));
 
   Widget _errorBuilder(_, __, exception) {
     if (exception is Failure) {
@@ -209,7 +195,7 @@ class _FormBuilderSearchableBottomSheetState<T>
 
   /// Get the suggested items to be displayed in the bottom sheet
   List<T> _getSuggestedItems(List<T> items) {
-    final suggestedItemsResponse = widget.suggestedItemsUseCase!();
+    final suggestedItemsResponse = suggestedItemsUseCase!();
 
     List<T> suggestedItems = [];
 
@@ -224,17 +210,5 @@ class _FormBuilderSearchableBottomSheetState<T>
         .toList();
 
     return suggestedItems;
-  }
-
-  Future<void> _automaticSelectFirstItem() async {
-    final itemsResponse = await widget.useCase();
-
-    List<T> items = [];
-
-    itemsResponse.fold((failure) => {}, (value) => items = value);
-
-    if (items.isEmpty || items.length > 1) return;
-
-    widget.bottomSheetKey?.currentState?.updateValue(items.first);
   }
 }
