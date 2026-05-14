@@ -117,11 +117,11 @@ packages:
     dependency: transitive
     description:
       path: "."
-      ref: "6.1.0"
-      resolved-ref: af28715f5514e802f53f0df4a5550dca6f84d6a1
+      ref: "6.1.2"
+      resolved-ref: "253a8a45211fd5403c7c147988e3a297ba9487bb"
       url: "https://github.com/alexsosat/dropdown_search.git"
     source: git
-    version: "6.0.7"
+    version: "6.0.8"
   fake_async:
     dependency: transitive
     description:
@@ -181,7 +181,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "1.0.25"
+    version: "1.0.29"
   flutter_flavor:
     dependency: transitive
     description:
@@ -207,7 +207,7 @@ packages:
     source: hosted
     version: "5.0.0"
   flutter_localizations:
-    dependency: transitive
+    dependency: "direct main"
     description: flutter
     source: sdk
     version: "0.0.0"
@@ -281,11 +281,11 @@ packages:
     dependency: transitive
     description:
       path: "."
-      ref: "0.0.10"
-      resolved-ref: "885a34be11b62e3ff82e1834e5652441ee92d830"
+      ref: "0.1.2"
+      resolved-ref: "8191bd9b2aab80285a2e4c7e1329e7a0e9706551"
       url: "https://github.com/alexsosat/form_builder_dropdown_search.git"
     source: git
-    version: "0.0.10"
+    version: "0.1.2"
   fpdart:
     dependency: transitive
     description:
