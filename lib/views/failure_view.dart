@@ -10,13 +10,10 @@ class FailureView extends StatelessWidget {
   /// Widget that shows a [Failure] in a page.
   ///
   /// Shows the user that an error occurred and allows them to retry the action.
-  const FailureView(this.failure, {super.key, this.onRetry});
+  const FailureView(this.failure, {super.key});
 
   /// The [Failure] to show in the page,
   final Failure failure;
-
-  /// The [Function] to call when the user wants to retry the action.
-  final void Function()? onRetry;
 
   @override
   Widget build(BuildContext context) => Center(
@@ -28,7 +25,10 @@ class FailureView extends StatelessWidget {
           flex: 1,
           child: Padding(
             padding: const EdgeInsets.only(bottom: 25),
-            child: _FailureAnimation(failure: failure),
+            child: _FailureAnimation(
+              failure: failure,
+              height: MediaQuery.of(context).size.height * 0.5,
+            ),
           ),
         ),
         Flexible(
@@ -57,40 +57,28 @@ class FailureView extends StatelessWidget {
             ],
           ),
         ),
-        if (onRetry != null)
-          Flexible(
-            flex: 1,
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                elevation: 2,
-                backgroundColor: context.colorScheme.primary,
-                foregroundColor: context.colorScheme.onPrimary,
-              ),
-              child: Text("Reintentar".toCapitalized()),
-              onPressed: () {
-                onRetry?.call();
-              },
-            ),
-          ),
       ],
     ),
   );
 }
 
 class _FailureAnimation extends StatelessWidget {
-  const _FailureAnimation({required this.failure});
+  const _FailureAnimation({required this.failure, required this.height});
+
+  final double height;
 
   /// The [Failure] to show in the animation.
   final Failure failure;
 
   @override
-  Widget build(BuildContext context) => Lottie.asset(switch (failure) {
-    AppFailure _ => "assets/animations/failure/app_error.json",
-    HttpCallFailure serverErrorFailure => _httpAnimation(
-      serverErrorFailure.type,
-    ),
-    _ => "assets/animations/failure/unexpected.json",
-  }, package: "flutter_common_classes");
+  Widget build(BuildContext context) =>
+      Lottie.asset(height: height, switch (failure) {
+        AppFailure _ => "assets/animations/failure/app_error.json",
+        HttpCallFailure serverErrorFailure => _httpAnimation(
+          serverErrorFailure.type,
+        ),
+        _ => "assets/animations/failure/unexpected.json",
+      }, package: "flutter_common_classes");
 
   String _httpAnimation(HttpExceptions type) {
     switch (type) {
