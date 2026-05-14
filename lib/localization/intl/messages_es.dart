@@ -59,6 +59,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "internetConnectionUnavailableTitle": MessageLookupByLibrary.simpleMessage(
       "Sin conexión a internet",
     ),
+    "noData": MessageLookupByLibrary.simpleMessage("No data"),
     "readValueError": m2,
     "requestBadMessage": MessageLookupByLibrary.simpleMessage(
       "Los parámetros enviados al servidor son incorrectos",

@@ -157,6 +157,11 @@ class FlutterCommonLocalizations {
     );
   }
 
+  /// `No data`
+  String get noData {
+    return Intl.message('No data', name: 'noData', desc: '', args: []);
+  }
+
   /// `Ocurrió un error al leer el valor de {token}`
   String readValueError(Object token) {
     return Intl.message(

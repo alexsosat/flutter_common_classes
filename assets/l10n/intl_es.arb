@@ -9,6 +9,7 @@
   "formInvalidFailureTitle": "Formulario inválido",
   "internetConnectionUnavailableMessage": "Revisa tu conexión a internet y vuelve a intentarlo",
   "internetConnectionUnavailableTitle": "Sin conexión a internet",
+  "noData": "No data",
   "readValueError": "Ocurrió un error al leer el valor de {token}",
   "requestBadMessage": "Los parámetros enviados al servidor son incorrectos",
   "requestBadTitle": "Petición incorrecta",
