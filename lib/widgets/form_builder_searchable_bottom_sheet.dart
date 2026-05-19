@@ -1,7 +1,6 @@
 import "dart:async";
 
 import "package:flutter/material.dart" hide SuggestionsBuilder;
-import "package:fpdart/fpdart.dart" show Either;
 
 import "../flutter_common_classes.dart";
 import "../localization/l10n.dart";
@@ -32,6 +31,7 @@ class FormBuilderSearchableBottomSheet<T> extends StatelessWidget {
     this.clickProps = const ClickProps(),
     this.itemProps,
     this.pinnedItemProps,
+    this.onItemSelected,
     super.key,
   });
 
@@ -106,6 +106,9 @@ class FormBuilderSearchableBottomSheet<T> extends StatelessWidget {
   /// Props to enable the pinning of items in the bottom sheet
   final PinnedItemsProps<T>? pinnedItemProps;
 
+  /// Function called when an item is selected through the bottomsheet
+  final ValueChanged<T?>? onItemSelected;
+
   @override
   Widget build(BuildContext context) => FormBuilderDropdownSearch<T>(
     key: bottomSheetKey,
@@ -153,6 +156,7 @@ class FormBuilderSearchableBottomSheet<T> extends StatelessWidget {
       ),
     ),
     onChanged: onChanged,
+    onItemSelected: onItemSelected,
     decoration: InputDecoration(
       labelText: label,
       errorText: errorText,
