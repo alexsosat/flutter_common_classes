@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Material App',
-      home: ListPage(),
+      home: TestPage(),
       localizationsDelegates: [
         FlutterCommonLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
@@ -26,6 +26,19 @@ class MyApp extends StatelessWidget {
       locale: const Locale('es'),
     );
   }
+}
+
+class TestPage extends StatelessWidget {
+  const TestPage({super.key});
+
+  @override
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(title: const Text("Test page")),
+        body: FailureView(
+          AppFailure.unexpected("Unexpected error 1"),
+          onRetry: () => print("Retry"),
+        ),
+      );
 }
 
 class ListPage extends PageLoaderWidget<PostsCubit, List<Post>> {

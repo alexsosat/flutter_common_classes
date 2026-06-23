@@ -10,10 +10,14 @@ class FailureView extends StatelessWidget {
   /// Widget that shows a [Failure] in a page.
   ///
   /// Shows the user that an error occurred and allows them to retry the action.
-  const FailureView(this.failure, {super.key});
+  const FailureView(this.failure, {super.key, this.onRetry});
 
   /// The [Failure] to show in the page,
   final Failure failure;
+
+  /// The [Function] to call when the user wants to retry the action.
+  @Deprecated("Please use the retry action from the PageLoaderWidget")
+  final void Function()? onRetry;
 
   @override
   Widget build(BuildContext context) => Center(
@@ -47,7 +51,10 @@ class FailureView extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: 15, left: 25, right: 25),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 25,
+                  vertical: 15,
+                ),
                 child: Text(
                   failure.message,
                   textAlign: TextAlign.center,
@@ -57,6 +64,16 @@ class FailureView extends StatelessWidget {
             ],
           ),
         ),
+        if (onRetry != null)
+          SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+              child: ElevatedButton(
+                onPressed: onRetry,
+                child: Text("Reintentar"),
+              ),
+            ),
+          ),
       ],
     ),
   );

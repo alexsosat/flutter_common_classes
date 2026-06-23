@@ -181,7 +181,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "1.0.30"
+    version: "1.1.3"
   flutter_flavor:
     dependency: transitive
     description:
@@ -281,11 +281,11 @@ packages:
     dependency: transitive
     description:
       path: "."
-      ref: "0.1.2"
-      resolved-ref: "8191bd9b2aab80285a2e4c7e1329e7a0e9706551"
+      ref: "0.1.4"
+      resolved-ref: "5321366f3c7263909baad39fc4e897b516709d0c"
       url: "https://github.com/alexsosat/form_builder_dropdown_search.git"
     source: git
-    version: "0.1.2"
+    version: "0.1.4"
   fpdart:
     dependency: transitive
     description:
