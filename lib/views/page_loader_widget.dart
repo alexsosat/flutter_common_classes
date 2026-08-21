@@ -47,7 +47,7 @@ abstract class PageLoaderWidget<T extends LoaderCubit<B>, B>
     throw UnimplementedError();
   }
 
-  Widget? pageScaffold(Widget child) => null;
+  Widget? pageScaffold(BuildContext context, Widget child) => null;
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +65,7 @@ abstract class PageLoaderWidget<T extends LoaderCubit<B>, B>
         BlocProvider(create: (context) => mainCubit),
         ...cubits ?? [],
       ],
-      child: pageScaffold(content) ?? Scaffold(body: content),
+      child: pageScaffold(context, content) ?? Scaffold(body: content),
     );
   }
 }
