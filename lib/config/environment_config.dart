@@ -54,4 +54,6 @@ abstract class EnvironmentConfig {
 
   /// Whether the current flavor is the mock flavor.
   static bool get isMockFlavor => _current?.name == _mockFlavorName;
+
+  static AppFlavor get current => _current!;
 }
