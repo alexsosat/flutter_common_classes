@@ -1,9 +1,7 @@
-import "package:flutter_bloc/flutter_bloc.dart";
-import "package:fpdart/fpdart.dart";
-
 import "../flutter_common_classes.dart";
 
 /// Base cubit for getting information from a use case
+@Deprecated("Use AutoLoaderCubit instead")
 abstract class GetInfoCubit<T> extends Cubit<StateMixin<T>> {
   /// Base cubit for getting information from a use case
   GetInfoCubit() : super(StateMixin.loading()) {

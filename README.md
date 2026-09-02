@@ -25,11 +25,48 @@ start using the package.
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+### Environment / flavor configuration
+
+`EnvironmentConfig` doesn't ship a fixed set of flavors. Instead, each app
+declares its own flavor enum implementing `AppFlavor`, using Dart's enhanced
+enums to attach a `variables` map per value:
 
 ```dart
-const like = 'sample';
+enum Flavor implements AppFlavor {
+  mock(variables: {}),
+  test(variables: {'apiUrl': 'https://test.api'}),
+  production(variables: {'apiUrl': 'https://api'});
+
+  const Flavor({required this.variables});
+
+  @override
+  final Map<String, dynamic> variables;
+}
+```
+
+An app can declare as many or as few flavors as it needs, with any names,
+without changing this package.
+
+Initialize it in `main()`:
+
+```dart
+void main() {
+  EnvironmentConfig.init(flavor: Flavor.mock);
+  runApp(const MyApp());
+}
+```
+
+`DependencyInjection.injectPublicRepositories()` /
+`injectPrivateRepositories()` automatically route to mock vs. remote
+repositories based on the current flavor's name matching `"mock"` — no
+manual wiring needed. If your app names its mock or production flavors
+something else, pass `mockFlavorName` / `productionFlavorName` to `init`:
+
+```dart
+EnvironmentConfig.init(
+  flavor: Flavor.demo,
+  mockFlavorName: 'demo',
+);
 ```
 
 ## Additional information

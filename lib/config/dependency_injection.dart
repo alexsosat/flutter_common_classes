@@ -1,7 +1,6 @@
 import "dart:io";
 
 import "package:flutter/material.dart";
-import "package:flutter_flavor/flutter_flavor.dart";
 
 import "environment_config.dart";
 import "http_certificate_override.dart";
@@ -39,7 +38,7 @@ abstract class DependencyInjection {
   /// These repositories are loaded during the splash screen
   @mustCallSuper
   void injectPublicRepositories() {
-    if (FlavorConfig.instance.name == Flavor.mock.name) {
+    if (EnvironmentConfig.isMockFlavor) {
       injectPublicMockRepositories();
     } else {
       injectPublicRemoteRepositories();
@@ -52,7 +51,7 @@ abstract class DependencyInjection {
   /// These repositories are loaded during the splash screen
   @mustCallSuper
   void injectPrivateRepositories() {
-    if (FlavorConfig.instance.name == Flavor.mock.name) {
+    if (EnvironmentConfig.isMockFlavor) {
       injectPrivateMockRepositories();
     } else {
       injectPrivateRemoteRepositories();

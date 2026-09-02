@@ -1,53 +1,57 @@
 import "package:flutter/material.dart";
 import "package:flutter_flavor/flutter_flavor.dart";
 
+/// Contract that an app-specific flavor enum must implement so
+/// [EnvironmentConfig] can configure it, regardless of how many flavors
+/// the app defines or what they're named.
+///
+/// Each consuming app should declare its own enum, e.g.:
+/// ```dart
+/// enum Flavor implements AppFlavor {
+///   mock(variables: {}),
+///   test(variables: {'apiUrl': 'https://test.api'}),
+///   production(variables: {'apiUrl': 'https://api'});
+///
+///   const Flavor({required this.variables});
+///
+///   @override
+///   final Map<String, dynamic> variables;
+/// }
+/// ```
+abstract interface class AppFlavor implements Enum {
+  /// Configuration variables available for this flavor.
+  Map<String, dynamic> get variables;
+}
+
 /// A class that provides the environment configuration for the application.
 ///
 /// This class is used to set the environment variables for the application.
 abstract class EnvironmentConfig {
+  static AppFlavor? _current;
+  static String _mockFlavorName = "mock";
+
   /// Initializes the environment configuration.
-  static void init({required Flavor flavor}) {
+  ///
+  /// [mockFlavorName] and [productionFlavorName] identify which of the
+  /// app's flavor values are treated as the mock and production flavors,
+  /// respectively. They default to "mock" and "production" to match the
+  /// conventional flavor names.
+  static void init({
+    required AppFlavor flavor,
+    String mockFlavorName = "mock",
+    String productionFlavorName = "production",
+  }) {
+    _current = flavor;
+    _mockFlavorName = mockFlavorName;
+
     FlavorConfig(
-      name: flavor.name != "production" ? flavor.name : null,
+      name: flavor.name != productionFlavorName ? flavor.name : null,
       color: Colors.red,
       location: BannerLocation.topStart,
-      variables: getVariables(flavor),
+      variables: flavor.variables,
     );
   }
 
-  static Map<String, dynamic> getVariables(Flavor flavor) => switch (flavor) {
-    Flavor.mock => mockVariables,
-    Flavor.local => localVariables,
-    Flavor.test => testVariables,
-    Flavor.production => prodVariables,
-    Flavor.preProduction => preProdVariables,
-  };
-
-  static const Map<String, dynamic> mockVariables = {};
-
-  static const Map<String, dynamic> localVariables = {};
-
-  static const Map<String, dynamic> testVariables = {};
-
-  static const Map<String, dynamic> preProdVariables = {};
-
-  static const Map<String, dynamic> prodVariables = {};
-}
-
-/// The different environments for the application.
-enum Flavor {
-  /// The mock environment.
-  mock,
-
-  /// The local environment.
-  local,
-
-  /// The test environment.
-  test,
-
-  /// The pre production environment.
-  preProduction,
-
-  /// The production environment.
-  production,
+  /// Whether the current flavor is the mock flavor.
+  static bool get isMockFlavor => _current?.name == _mockFlavorName;
 }

@@ -3,7 +3,22 @@ import 'package:flutter_common_classes/flutter_common_classes.dart';
 import 'package:flutter_common_classes/localization/l10n.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-void main() => runApp(const MyApp());
+/// Example of an app-specific flavor enum implementing [AppFlavor].
+/// Each consuming app defines its own set of values like this one.
+enum Flavor implements AppFlavor {
+  mock(variables: {}),
+  production(variables: {'apiUrl': 'https://api.example.com'});
+
+  const Flavor({required this.variables});
+
+  @override
+  final Map<String, dynamic> variables;
+}
+
+void main() {
+  EnvironmentConfig.init(flavor: Flavor.mock);
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
