@@ -3,6 +3,8 @@ import 'package:flutter_common_classes/flutter_common_classes.dart';
 import 'package:flutter_common_classes/localization/l10n.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'secure_storage_example_page.dart';
+
 /// Example of an app-specific flavor enum implementing [AppFlavor].
 /// Each consuming app defines its own set of values like this one.
 enum Flavor implements AppFlavor {
@@ -52,6 +54,14 @@ class TestPage extends StatelessWidget {
         body: FailureView(
           AppFailure.unexpected("Unexpected error 1"),
           onRetry: () => print("Retry"),
+        ),
+        floatingActionButton: FloatingActionButton.extended(
+          label: const Text("Secure storage example"),
+          onPressed: () => Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) => const SecureStorageExamplePage(),
+            ),
+          ),
         ),
       );
 }
