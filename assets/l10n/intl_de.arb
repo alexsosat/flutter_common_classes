@@ -19,5 +19,14 @@
   "sessionExpiredTitle": "Sitzung abgelaufen",
   "tryAgainLater": "Bitte versuchen Sie es später noch einmal",
   "userUnauthorizedMessage": "Der Benutzer verfügt nicht über die erforderlichen Berechtigungen für den Zugriff auf diesen Bildschirm.",
-  "userUnauthorizedTitle": "Dieser Benutzer hat keinen Zugriff auf den Bildschirm"
+  "userUnauthorizedTitle": "Dieser Benutzer hat keinen Zugriff auf den Bildschirm",
+  "ServerErrorMessage": "Bei der Verarbeitung der Anfrage ist ein Fehler aufgetreten",
+  "errorUnexpected": "In der Anwendung ist ein Fehler aufgetreten",
+  "noData": "Keine Informationen",
+  "routeNotFound": "Route nicht gefunden",
+  "routeNotFoundMessage": "Die angeforderte Ressource wurde nicht gefunden",
+  "search": "Suchen",
+  "serverErrorTitle": "Serverfehler",
+  "valueNotSetFailureMessage": "Bitte geben Sie einen Wert ein, um die Informationen zu erhalten",
+  "valueNotSetFailureTitle": "Kein Wert angegeben"
 }

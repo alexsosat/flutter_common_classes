@@ -32,6 +32,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "ServerErrorMessage": MessageLookupByLibrary.simpleMessage(
+      "Ocurrió un error al procesar la solicitud",
+    ),
     "cacheExceptionTitle": MessageLookupByLibrary.simpleMessage(
       "Error al acceder a información en el dispositivo",
     ),
@@ -59,7 +62,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "internetConnectionUnavailableTitle": MessageLookupByLibrary.simpleMessage(
       "Sin conexión a internet",
     ),
-    "noData": MessageLookupByLibrary.simpleMessage("No data"),
+    "noData": MessageLookupByLibrary.simpleMessage("Sin información"),
     "readValueError": m2,
     "requestBadMessage": MessageLookupByLibrary.simpleMessage(
       "Los parámetros enviados al servidor son incorrectos",
@@ -79,6 +82,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "saveValueError": m3,
     "search": MessageLookupByLibrary.simpleMessage("Buscar"),
+    "serverErrorTitle": MessageLookupByLibrary.simpleMessage(
+      "Error en el servidor",
+    ),
     "serverUnderMantainanceTitle": MessageLookupByLibrary.simpleMessage(
       "Nuestros servidores se encuentran en mantenimiento",
     ),

@@ -31,6 +31,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "ServerErrorMessage": MessageLookupByLibrary.simpleMessage(
+      "Ocorreu um erro ao processar a solicitação",
+    ),
     "cacheExceptionTitle": MessageLookupByLibrary.simpleMessage(
       "Erro ao aceder a informações no dispositivo",
     ),
@@ -45,6 +48,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "environmentExceptionTitle": MessageLookupByLibrary.simpleMessage(
       "Erro de ambiente",
     ),
+    "errorUnexpected": MessageLookupByLibrary.simpleMessage(
+      "Ocorreu um erro no aplicativo",
+    ),
     "formInvalidFailureTitle": MessageLookupByLibrary.simpleMessage(
       "Formulário inválido",
     ),
@@ -55,6 +61,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "internetConnectionUnavailableTitle": MessageLookupByLibrary.simpleMessage(
       "Sem ligação à Internet",
     ),
+    "noData": MessageLookupByLibrary.simpleMessage("Nenhuma informação"),
     "readValueError": m2,
     "requestBadMessage": MessageLookupByLibrary.simpleMessage(
       "Os parâmetros enviados para o servidor estão incorrectos",
@@ -66,7 +73,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "requestCanceledTitle": MessageLookupByLibrary.simpleMessage(
       "Petição anulada",
     ),
+    "routeNotFound": MessageLookupByLibrary.simpleMessage(
+      "Rota não encontrada",
+    ),
+    "routeNotFoundMessage": MessageLookupByLibrary.simpleMessage(
+      "O recurso solicitado não foi encontrado",
+    ),
     "saveValueError": m3,
+    "search": MessageLookupByLibrary.simpleMessage("Procurar"),
+    "serverErrorTitle": MessageLookupByLibrary.simpleMessage(
+      "Erro no servidor",
+    ),
     "serverUnderMantainanceTitle": MessageLookupByLibrary.simpleMessage(
       "Os nossos servidores estão em manutenção",
     ),
@@ -84,6 +101,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "userUnauthorizedTitle": MessageLookupByLibrary.simpleMessage(
       "Este utilizador não tem acesso ao ecrã",
+    ),
+    "valueNotSetFailureMessage": MessageLookupByLibrary.simpleMessage(
+      "Forneça um valor para obter as informações",
+    ),
+    "valueNotSetFailureTitle": MessageLookupByLibrary.simpleMessage(
+      "Nenhum valor fornecido",
     ),
   };
 }

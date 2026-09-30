@@ -13,7 +13,9 @@ abstract class NetworkInfo {
 /// A class that implements the [NetworkInfo] abstract class
 class NetworkInfoImpl implements NetworkInfo {
   /// Initializes the [NetworkInfoImpl] with the [connectionChecker]
-  NetworkInfoImpl();
+  NetworkInfoImpl() {
+    createInstance();
+  }
 
   late final InternetConnection _connectionChecker;
 

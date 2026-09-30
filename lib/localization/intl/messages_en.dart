@@ -34,6 +34,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "ServerErrorMessage": MessageLookupByLibrary.simpleMessage(
+      "An error occurred while processing the request",
+    ),
     "cacheExceptionTitle": MessageLookupByLibrary.simpleMessage(
       "Error accessing information on the device",
     ),
@@ -48,6 +51,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "environmentExceptionTitle": MessageLookupByLibrary.simpleMessage(
       "Environment error",
     ),
+    "errorUnexpected": MessageLookupByLibrary.simpleMessage(
+      "An error occurred in the application",
+    ),
     "formInvalidFailureTitle": MessageLookupByLibrary.simpleMessage(
       "Invalid form",
     ),
@@ -58,6 +64,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "internetConnectionUnavailableTitle": MessageLookupByLibrary.simpleMessage(
       "No internet connection",
     ),
+    "noData": MessageLookupByLibrary.simpleMessage("No information"),
     "readValueError": m2,
     "requestBadMessage": MessageLookupByLibrary.simpleMessage(
       "Parameters sent to the server are incorrect",
@@ -71,7 +78,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "requestCanceledTitle": MessageLookupByLibrary.simpleMessage(
       "Request cancelled",
     ),
+    "routeNotFound": MessageLookupByLibrary.simpleMessage("Route not found"),
+    "routeNotFoundMessage": MessageLookupByLibrary.simpleMessage(
+      "The requested resource was not found",
+    ),
     "saveValueError": m3,
+    "search": MessageLookupByLibrary.simpleMessage("Look for"),
+    "serverErrorTitle": MessageLookupByLibrary.simpleMessage("Server error"),
     "serverUnderMantainanceTitle": MessageLookupByLibrary.simpleMessage(
       "Our servers are under maintenance",
     ),
@@ -89,6 +102,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "userUnauthorizedTitle": MessageLookupByLibrary.simpleMessage(
       "This user does not have access to the screen",
+    ),
+    "valueNotSetFailureMessage": MessageLookupByLibrary.simpleMessage(
+      "Please provide a value to obtain the information",
+    ),
+    "valueNotSetFailureTitle": MessageLookupByLibrary.simpleMessage(
+      "No value provided",
     ),
   };
 }

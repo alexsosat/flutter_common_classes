@@ -157,9 +157,9 @@ class FlutterCommonLocalizations {
     );
   }
 
-  /// `No data`
+  /// `Sin información`
   String get noData {
-    return Intl.message('No data', name: 'noData', desc: '', args: []);
+    return Intl.message('Sin información', name: 'noData', desc: '', args: []);
   }
 
   /// `Ocurrió un error al leer el valor de {token}`
@@ -322,6 +322,26 @@ class FlutterCommonLocalizations {
     return Intl.message(
       'Ningún valor proporcionado',
       name: 'valueNotSetFailureTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error en el servidor`
+  String get serverErrorTitle {
+    return Intl.message(
+      'Error en el servidor',
+      name: 'serverErrorTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ocurrió un error al procesar la solicitud`
+  String get ServerErrorMessage {
+    return Intl.message(
+      'Ocurrió un error al procesar la solicitud',
+      name: 'ServerErrorMessage',
       desc: '',
       args: [],
     );

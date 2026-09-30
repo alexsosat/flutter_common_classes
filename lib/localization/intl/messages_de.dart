@@ -34,6 +34,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "ServerErrorMessage": MessageLookupByLibrary.simpleMessage(
+      "Bei der Verarbeitung der Anfrage ist ein Fehler aufgetreten",
+    ),
     "cacheExceptionTitle": MessageLookupByLibrary.simpleMessage(
       "Fehler beim Zugriff auf Informationen auf dem Gerät",
     ),
@@ -48,6 +51,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "environmentExceptionTitle": MessageLookupByLibrary.simpleMessage(
       "Fehler in der Umgebung",
     ),
+    "errorUnexpected": MessageLookupByLibrary.simpleMessage(
+      "In der Anwendung ist ein Fehler aufgetreten",
+    ),
     "formInvalidFailureTitle": MessageLookupByLibrary.simpleMessage(
       "Ungültiges Formular",
     ),
@@ -58,6 +64,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "internetConnectionUnavailableTitle": MessageLookupByLibrary.simpleMessage(
       "Keine Internetverbindung",
     ),
+    "noData": MessageLookupByLibrary.simpleMessage("Keine Informationen"),
     "readValueError": m2,
     "requestBadMessage": MessageLookupByLibrary.simpleMessage(
       "Die an den Server gesendeten Parameter sind falsch",
@@ -69,7 +76,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "requestCanceledTitle": MessageLookupByLibrary.simpleMessage(
       "Petition annulliert",
     ),
+    "routeNotFound": MessageLookupByLibrary.simpleMessage(
+      "Route nicht gefunden",
+    ),
+    "routeNotFoundMessage": MessageLookupByLibrary.simpleMessage(
+      "Die angeforderte Ressource wurde nicht gefunden",
+    ),
     "saveValueError": m3,
+    "search": MessageLookupByLibrary.simpleMessage("Suchen"),
+    "serverErrorTitle": MessageLookupByLibrary.simpleMessage("Serverfehler"),
     "serverUnderMantainanceTitle": MessageLookupByLibrary.simpleMessage(
       "Unsere Server werden gerade gewartet",
     ),
@@ -87,6 +102,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "userUnauthorizedTitle": MessageLookupByLibrary.simpleMessage(
       "Dieser Benutzer hat keinen Zugriff auf den Bildschirm",
+    ),
+    "valueNotSetFailureMessage": MessageLookupByLibrary.simpleMessage(
+      "Bitte geben Sie einen Wert ein, um die Informationen zu erhalten",
+    ),
+    "valueNotSetFailureTitle": MessageLookupByLibrary.simpleMessage(
+      "Kein Wert angegeben",
     ),
   };
 }

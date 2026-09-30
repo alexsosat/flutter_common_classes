@@ -19,5 +19,14 @@
   "sessionExpiredTitle": "세션이 만료되었습니다.",
   "tryAgainLater": "나중에 다시 시도하세요.",
   "userUnauthorizedMessage": "사용자에게 이 화면에 액세스할 수 있는 필수 권한이 없습니다.",
-  "userUnauthorizedTitle": "이 사용자에게는 화면에 액세스할 수 있는 권한이 없습니다."
+  "userUnauthorizedTitle": "이 사용자에게는 화면에 액세스할 수 있는 권한이 없습니다.",
+  "ServerErrorMessage": "요청을 처리하는 동안 오류가 발생했습니다.",
+  "errorUnexpected": "응용 프로그램에서 오류가 발생했습니다",
+  "noData": "정보 없음",
+  "routeNotFound": "경로를 찾을 수 없습니다",
+  "routeNotFoundMessage": "요청한 리소스를 찾을 수 없습니다",
+  "search": "찾아보세요",
+  "serverErrorTitle": "서버 오류",
+  "valueNotSetFailureMessage": "정보를 얻으려면 값을 입력하십시오.",
+  "valueNotSetFailureTitle": "제공된 값이 없습니다."
 }

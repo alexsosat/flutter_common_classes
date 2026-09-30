@@ -19,5 +19,14 @@
   "sessionExpiredTitle": "Sessão expirada",
   "tryAgainLater": "Por favor, tente novamente mais tarde",
   "userUnauthorizedMessage": "O utilizador não tem as permissões necessárias para aceder a este ecrã.",
-  "userUnauthorizedTitle": "Este utilizador não tem acesso ao ecrã"
+  "userUnauthorizedTitle": "Este utilizador não tem acesso ao ecrã",
+  "ServerErrorMessage": "Ocorreu um erro ao processar a solicitação",
+  "errorUnexpected": "Ocorreu um erro no aplicativo",
+  "noData": "Nenhuma informação",
+  "routeNotFound": "Rota não encontrada",
+  "routeNotFoundMessage": "O recurso solicitado não foi encontrado",
+  "search": "Procurar",
+  "serverErrorTitle": "Erro no servidor",
+  "valueNotSetFailureMessage": "Forneça um valor para obter as informações",
+  "valueNotSetFailureTitle": "Nenhum valor fornecido"
 }

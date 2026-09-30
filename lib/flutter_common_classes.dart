@@ -41,3 +41,4 @@ export "package:confirm_alert/show_confirmation_dialog.dart";
 export "package:confirm_alert/classes/dialog_result_enum.dart";
 export "package:flutter_bloc/flutter_bloc.dart";
 export "package:fpdart/src/either.dart";
+export "package:flutter_flavor/flutter_flavor.dart";

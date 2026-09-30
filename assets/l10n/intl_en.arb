@@ -19,5 +19,14 @@
   "sessionExpiredTitle": "Session expired",
   "tryAgainLater": "Please try again later",
   "userUnauthorizedMessage": "The user does not have the necessary permissions to access this screen.",
-  "userUnauthorizedTitle": "This user does not have access to the screen"
+  "userUnauthorizedTitle": "This user does not have access to the screen",
+  "ServerErrorMessage": "An error occurred while processing the request",
+  "errorUnexpected": "An error occurred in the application",
+  "noData": "No information",
+  "routeNotFound": "Route not found",
+  "routeNotFoundMessage": "The requested resource was not found",
+  "search": "Look for",
+  "serverErrorTitle": "Server error",
+  "valueNotSetFailureMessage": "Please provide a value to obtain the information",
+  "valueNotSetFailureTitle": "No value provided"
 }

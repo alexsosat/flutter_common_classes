@@ -14,6 +14,14 @@ class ServerErrorException extends HttpCallException {
     super.type = HttpExceptions.serverError,
   });
 
+  /// The constructor for the server error general exception with default values.
+  ServerErrorException.general(Map<String, dynamic>? data)
+    : this(
+        title: FlutterCommonLocalizations.current.serverErrorTitle,
+        message: FlutterCommonLocalizations.current.ServerErrorMessage,
+        data: data,
+      );
+
   /// The constructor for the Bad Certificate exception.
   factory ServerErrorException.badCertificate({
     String? title,

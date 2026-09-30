@@ -19,5 +19,14 @@
   "sessionExpiredTitle": "Session expirée",
   "tryAgainLater": "Veuillez réessayer plus tard",
   "userUnauthorizedMessage": "L'utilisateur ne dispose pas des autorisations nécessaires pour accéder à cet écran.",
-  "userUnauthorizedTitle": "Cet utilisateur n'a pas accès à l'écran"
+  "userUnauthorizedTitle": "Cet utilisateur n'a pas accès à l'écran",
+  "ServerErrorMessage": "Une erreur s'est produite lors du traitement de la demande",
+  "errorUnexpected": "Une erreur s'est produite dans l'application",
+  "noData": "Aucune information",
+  "routeNotFound": "Itinéraire introuvable",
+  "routeNotFoundMessage": "La ressource demandée n'a pas été trouvée",
+  "search": "Rechercher",
+  "serverErrorTitle": "Erreur de serveur",
+  "valueNotSetFailureMessage": "Veuillez fournir une valeur pour obtenir les informations",
+  "valueNotSetFailureTitle": "Aucune valeur fournie"
 }
